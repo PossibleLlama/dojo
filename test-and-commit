@@ -1,0 +1,4 @@
+#! /bin/bash
+
+# Wanting these to be ran only if tests are successful. Easiest way is chaining &&'s.
+./run-tests && git add --all && git commit "prime-factors-clojure $(date '+%Y-%m-%d %H:%M')" && echo "Completed successfully"
