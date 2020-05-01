@@ -1,8 +1,8 @@
 # Prime factors Kata
 
-## Aim
+## Origin
 
-The aim is to practice coding and get used to language/ide specific features over the problem.
+This kata came from [The Clean Coder](https://www.amazon.co.uk/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073) by Robert C Martin (Uncle Bob). This is one of the examples he mentions mutliple times in the book as a good practicing tool.
 
 ## Problem
 
