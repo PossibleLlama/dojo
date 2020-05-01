@@ -12,7 +12,7 @@ The problem to solve, is to find the prime numbers that multiply together to get
 
 A number that is divisible only by iteself and 1.
 
-`1, 2, 3, 5, 7, 11`
+`2, 3, 5, 7, 11`
 
 ### Examples
 
