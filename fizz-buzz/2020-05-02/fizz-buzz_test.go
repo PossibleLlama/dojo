@@ -13,6 +13,7 @@ func TestFunc(t *testing.T) {
 		{1, "1"},
 		{2, "2"},
 		{3, "Fizz"},
+		{4, "4"},
 	}
 
 	for _, testItem := range tests {
