@@ -5,6 +5,11 @@ import (
 	"strings"
 )
 
+type IntReplacement struct {
+	divisor     int
+	replacement string
+}
+
 func main() {
 	fmt.Println("start")
 }
@@ -17,8 +22,12 @@ func appendIfDivisible(number, divisible int, inputString, appendableString stri
 }
 
 func GetStringForNumber(number int) string {
+	fizz := IntReplacement{
+		divisor:     3,
+		replacement: "Fizz"}
+
 	output := ""
-	output = appendIfDivisible(number, 3, output, "Fizz")
+	output = appendIfDivisible(number, fizz.divisor, output, fizz.replacement)
 	output = appendIfDivisible(number, 5, output, "Buzz")
 
 	if len(output) > 0 {
