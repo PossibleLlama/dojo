@@ -6,14 +6,17 @@ func main() {
 	fmt.Println("start")
 }
 
+func appendIfDivisible(number, divisible int, inputString, appendableString string) string {
+	if number%divisible == 0 {
+		return inputString + appendableString
+	}
+	return inputString
+}
+
 func FizzBuzz(number int) string {
 	output := ""
-	if number%3 == 0 {
-		output += "Fizz"
-	}
-	if number%5 == 0 {
-		output += "Buzz"
-	}
+	output = appendIfDivisible(number, 3, output, "Fizz")
+	output = appendIfDivisible(number, 5, output, "Buzz")
 
 	if len(output) > 0 {
 		return output
