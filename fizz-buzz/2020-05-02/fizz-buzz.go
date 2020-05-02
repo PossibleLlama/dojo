@@ -11,7 +11,16 @@ type IntReplacement struct {
 }
 
 func main() {
-	fmt.Println("start")
+	replacements := []IntReplacement{
+		{
+			divisor:     3,
+			replacement: "Fizz"},
+		{
+			divisor:     5,
+			replacement: "Buzz"},
+	}
+
+	fmt.Println(ReplaceBetweenRange(1, 100, replacements))
 }
 
 func appendIfDivisible(number int, replaceable IntReplacement) string {
@@ -33,23 +42,10 @@ func GetStringForNumber(number int, replacements []IntReplacement) string {
 	return fmt.Sprint(number)
 }
 
-func ReplaceBetweenRange(start, end int) string {
-	replacements := []IntReplacement{
-		{
-			divisor:     3,
-			replacement: "Fizz"},
-		{
-			divisor:     5,
-			replacement: "Buzz"},
-	}
-
+func ReplaceBetweenRange(start, end int, replacements []IntReplacement) string {
 	output := ""
 	for i := start; i <= end; i++ {
 		output += GetStringForNumber(i, replacements) + " "
 	}
 	return strings.TrimSpace(output)
-}
-
-func FizzBuzz(start, end int) string {
-	return ""
 }
