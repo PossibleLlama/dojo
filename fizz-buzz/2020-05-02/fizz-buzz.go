@@ -7,10 +7,16 @@ func main() {
 }
 
 func FizzBuzz(number int) string {
+	output := ""
 	if number%3 == 0 {
-		return "Fizz"
-	} else if number%5 == 0 {
-		return "Buzz"
+		output += "Fizz"
+	}
+	if number%5 == 0 {
+		output += "Buzz"
+	}
+
+	if len(output) > 0 {
+		return output
 	}
 	return fmt.Sprint(number)
 }
