@@ -21,16 +21,7 @@ func appendIfDivisible(number int, replaceable IntReplacement) string {
 	return ""
 }
 
-func GetStringForNumber(number int) string {
-	replacements := []IntReplacement{
-		{
-			divisor:     3,
-			replacement: "Fizz"},
-		{
-			divisor:     5,
-			replacement: "Buzz"},
-	}
-
+func GetStringForNumber(number int, replacements []IntReplacement) string {
 	output := ""
 	for _, element := range replacements {
 		output += appendIfDivisible(number, element)
@@ -43,9 +34,18 @@ func GetStringForNumber(number int) string {
 }
 
 func ReplaceBetweenRange(start, end int) string {
+	replacements := []IntReplacement{
+		{
+			divisor:     3,
+			replacement: "Fizz"},
+		{
+			divisor:     5,
+			replacement: "Buzz"},
+	}
+
 	output := ""
 	for i := start; i <= end; i++ {
-		output += GetStringForNumber(i) + " "
+		output += GetStringForNumber(i, replacements) + " "
 	}
 	return strings.TrimSpace(output)
 }

@@ -6,6 +6,15 @@ import (
 )
 
 func TestGetStringForNumber(t *testing.T) {
+	replacements := []IntReplacement{
+		{
+			divisor:     3,
+			replacement: "Fizz"},
+		{
+			divisor:     5,
+			replacement: "Buzz"},
+	}
+
 	var tests = []struct {
 		input    int
 		expected string
@@ -45,7 +54,7 @@ func TestGetStringForNumber(t *testing.T) {
 	for _, testItem := range tests {
 		testName := fmt.Sprintf("%d", testItem.input)
 		t.Run(testName, func(t *testing.T) {
-			actual := GetStringForNumber(testItem.input)
+			actual := GetStringForNumber(testItem.input, replacements)
 			if actual != testItem.expected {
 				t.Errorf("Got %s, expected %s", actual, testItem.expected)
 			}
