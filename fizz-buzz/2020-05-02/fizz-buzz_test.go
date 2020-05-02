@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestFizzBuzz(t *testing.T) {
+func TestGetStringForNumber(t *testing.T) {
 	var tests = []struct {
 		input    int
 		expected string
