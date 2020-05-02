@@ -11,6 +11,7 @@ func TestFunc(t *testing.T) {
 		expected string
 	}{
 		{1, "1"},
+		{2, "2"},
 	}
 
 	for _, testItem := range tests {
