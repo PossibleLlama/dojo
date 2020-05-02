@@ -14,9 +14,9 @@ func main() {
 	fmt.Println("start")
 }
 
-func appendIfDivisible(number, divisible int, inputString, appendableString string) string {
-	if number%divisible == 0 {
-		return inputString + appendableString
+func appendIfDivisible(number int, inputString string, replaceable IntReplacement) string {
+	if number%replaceable.divisor == 0 {
+		return inputString + replaceable.replacement
 	}
 	return inputString
 }
@@ -33,7 +33,7 @@ func GetStringForNumber(number int) string {
 
 	output := ""
 	for _, element := range replacements {
-		output = appendIfDivisible(number, element.divisor, output, element.replacement)
+		output = appendIfDivisible(number, output, element)
 	}
 
 	if len(output) > 0 {
