@@ -59,6 +59,7 @@ func TestFizzBuzz(t *testing.T) {
 		expected   string
 	}{
 		{1, 5, "1 2 Fizz 4 Buzz"},
+		{3, 7, "Fizz 4 Buzz Fizz 7"},
 	}
 
 	for _, testItem := range tests {
