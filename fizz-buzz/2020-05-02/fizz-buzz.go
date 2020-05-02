@@ -27,10 +27,14 @@ func GetStringForNumber(number int) string {
 	return fmt.Sprint(number)
 }
 
-func FizzBuzz(start, end int) string {
+func ReplaceBetweenRange(start, end int) string {
 	output := ""
 	for i := start; i <= end; i++ {
 		output += GetStringForNumber(i) + " "
 	}
 	return strings.TrimSpace(output)
+}
+
+func FizzBuzz(start, end int) string {
+	return ""
 }
