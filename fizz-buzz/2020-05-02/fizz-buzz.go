@@ -13,7 +13,7 @@ func appendIfDivisible(number, divisible int, inputString, appendableString stri
 	return inputString
 }
 
-func FizzBuzz(number int) string {
+func GetStringForNumber(number int) string {
 	output := ""
 	output = appendIfDivisible(number, 3, output, "Fizz")
 	output = appendIfDivisible(number, 5, output, "Buzz")
@@ -22,4 +22,8 @@ func FizzBuzz(number int) string {
 		return output
 	}
 	return fmt.Sprint(number)
+}
+
+func FizzBuzz(number int) string {
+	return ""
 }
