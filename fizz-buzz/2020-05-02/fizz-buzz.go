@@ -20,7 +20,7 @@ func main() {
 			replacement: "Buzz"},
 	}
 
-	fmt.Println(ReplaceBetweenRange(1, 100, replacements))
+	fmt.Println(ReplaceBetweenRange(1, 100, replacements, "\n"))
 }
 
 func appendIfDivisible(number int, replaceable IntReplacement) string {
@@ -42,10 +42,10 @@ func GetStringForNumber(number int, replacements []IntReplacement) string {
 	return fmt.Sprint(number)
 }
 
-func ReplaceBetweenRange(start, end int, replacements []IntReplacement) string {
+func ReplaceBetweenRange(start, end int, replacements []IntReplacement, intermediary string) string {
 	output := ""
 	for i := start; i <= end; i++ {
-		output += GetStringForNumber(i, replacements) + " "
+		output += GetStringForNumber(i, replacements) + intermediary
 	}
 	return strings.TrimSpace(output)
 }

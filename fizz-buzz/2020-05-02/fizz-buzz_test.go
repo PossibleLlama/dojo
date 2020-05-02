@@ -122,7 +122,7 @@ func TestReplaceBetweenRange(t *testing.T) {
 	for _, testItem := range tests {
 		testName := fmt.Sprintf("%d, %d", testItem.start, testItem.end)
 		t.Run(testName, func(t *testing.T) {
-			actual := ReplaceBetweenRange(testItem.start, testItem.end, replacements)
+			actual := ReplaceBetweenRange(testItem.start, testItem.end, replacements, " ")
 			if actual != testItem.expected {
 				t.Errorf("Got %s, expected %s", actual, testItem.expected)
 			}
