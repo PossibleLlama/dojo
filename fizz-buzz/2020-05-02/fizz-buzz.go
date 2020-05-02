@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	fmt.Println("start")
@@ -24,6 +27,10 @@ func GetStringForNumber(number int) string {
 	return fmt.Sprint(number)
 }
 
-func FizzBuzz(number int) string {
-	return ""
+func FizzBuzz(start, end int) string {
+	output := ""
+	for i := start; i <= end; i++ {
+		output += " " + GetStringForNumber(i)
+	}
+	return strings.TrimSpace(output)
 }

@@ -52,3 +52,22 @@ func TestGetStringForNumber(t *testing.T) {
 		})
 	}
 }
+
+func TestFizzBuzz(t *testing.T) {
+	var tests = []struct {
+		start, end int
+		expected   string
+	}{
+		{1, 5, "1 2 Fizz 4 Buzz"},
+	}
+
+	for _, testItem := range tests {
+		testName := fmt.Sprintf("%d, %d", testItem.start, testItem.end)
+		t.Run(testName, func(t *testing.T) {
+			actual := FizzBuzz(testItem.start, testItem.end)
+			if actual != testItem.expected {
+				t.Errorf("Got %s, expected %s", actual, testItem.expected)
+			}
+		})
+	}
+}
