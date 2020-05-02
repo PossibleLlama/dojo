@@ -20,6 +20,10 @@ func TestFunc(t *testing.T) {
 		{8, "8"},
 		{9, "Fizz"},
 		{10, "Buzz"},
+		{11, "11"},
+		{12, "Fizz"},
+		{13, "13"},
+		{14, "14"},
 	}
 
 	for _, testItem := range tests {
