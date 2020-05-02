@@ -60,6 +60,7 @@ func TestFizzBuzz(t *testing.T) {
 	}{
 		{1, 5, "1 2 Fizz 4 Buzz"},
 		{3, 7, "Fizz 4 Buzz Fizz 7"},
+		{88, 92, "88 89 FizzBuzz 91 92"},
 	}
 
 	for _, testItem := range tests {
