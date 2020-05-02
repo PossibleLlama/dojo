@@ -25,10 +25,13 @@ func GetStringForNumber(number int) string {
 	fizz := IntReplacement{
 		divisor:     3,
 		replacement: "Fizz"}
+	buzz := IntReplacement{
+		divisor:     5,
+		replacement: "Buzz"}
 
 	output := ""
 	output = appendIfDivisible(number, fizz.divisor, output, fizz.replacement)
-	output = appendIfDivisible(number, 5, output, "Buzz")
+	output = appendIfDivisible(number, buzz.divisor, output, buzz.replacement)
 
 	if len(output) > 0 {
 		return output
