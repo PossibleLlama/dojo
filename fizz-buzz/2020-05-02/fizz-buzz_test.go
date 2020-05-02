@@ -19,6 +19,7 @@ func TestFunc(t *testing.T) {
 		{7, "7"},
 		{8, "8"},
 		{9, "Fizz"},
+		{10, "Buzz"},
 	}
 
 	for _, testItem := range tests {
