@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"strings"
 )
 
 func main() {
@@ -15,6 +16,10 @@ func MessageFromName(firstName string) string {
 }
 
 func firstLetterUppercase(word string) string {
+	if len(word) < 2 {
+		return strings.ToUpper(word)
+	}
+
 	charArr := []byte(word)
 
 	firstChar := bytes.ToUpper([]byte{charArr[0]})
