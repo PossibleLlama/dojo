@@ -10,5 +10,5 @@ func main() {
 
 // MessageFromName Get happy birthday message for given person
 func MessageFromName(firstName string) string {
-	return "Happy birthday, dear !"
+	return fmt.Sprintf("Happy birthday, dear %s!", firstName)
 }

@@ -11,6 +11,7 @@ func TestMessageFromName(t *testing.T) {
 		expected string
 	}{
 		{"", "Happy birthday, dear !"},
+		{"alice", "Happy birthday, dear alice!"},
 	}
 
 	for _, testItem := range tests {
