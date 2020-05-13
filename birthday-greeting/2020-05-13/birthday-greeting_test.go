@@ -10,12 +10,12 @@ func TestMessageFromName(t *testing.T) {
 		input    string
 		expected string
 	}{
-		{"", "Happy birthday, dear !"},
-		{"alice", "Happy birthday, dear Alice!"},
-		{"bob", "Happy birthday, dear Bob!"},
-		{"c", "Happy birthday, dear C!"},
-		{"dd", "Happy birthday, dear Dd!"},
-		{"edwina eucalyptus", "Happy birthday, dear Edwina Eucalyptus!"},
+		{"", nameInMessage("")},
+		{"alice", nameInMessage("Alice")},
+		{"bob", nameInMessage("Bob")},
+		{"c", nameInMessage("C")},
+		{"dd", nameInMessage("Dd")},
+		{"edwina eucalyptus", nameInMessage("Edwina Eucalyptus")},
 	}
 
 	for _, testItem := range tests {
@@ -27,4 +27,8 @@ func TestMessageFromName(t *testing.T) {
 			}
 		})
 	}
+}
+
+func nameInMessage(name string) string {
+	return fmt.Sprintf("Happy birthday, dear %s!", name)
 }
