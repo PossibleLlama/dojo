@@ -7,15 +7,15 @@ import (
 
 func TestMessageFromName(t *testing.T) {
 	var tests = []struct {
-		input    string
+		input    Contact
 		expected string
 	}{
-		{"", nameInMessage("")},
-		{"alice", nameInMessage("Alice")},
-		{"bob", nameInMessage("Bob")},
-		{"c", nameInMessage("C")},
-		{"dd", nameInMessage("Dd")},
-		{"edwina eucalyptus", nameInMessage("Edwina Eucalyptus")},
+		{GenContact(""), nameInMessage("")},
+		{GenContact("alice"), nameInMessage("Alice")},
+		{GenContact("bob"), nameInMessage("Bob")},
+		{GenContact("c"), nameInMessage("C")},
+		{GenContact("dd"), nameInMessage("Dd")},
+		{GenContact("edwina eucalyptus"), nameInMessage("Edwina Eucalyptus")},
 	}
 
 	for _, testItem := range tests {
