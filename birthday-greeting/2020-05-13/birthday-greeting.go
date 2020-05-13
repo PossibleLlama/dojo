@@ -31,8 +31,6 @@ func pascalCaseWithSpaces(word string) string {
 
 func uppercaseFirstCharacter(word string) string {
 	charArr := []byte(word)
-
 	firstChar := bytes.ToUpper([]byte{charArr[0]})
-	otherChars := charArr[1:]
-	return string(bytes.Join([][]byte{firstChar, otherChars}, nil))
+	return string(bytes.Join([][]byte{firstChar, charArr[1:]}, nil))
 }
