@@ -12,6 +12,7 @@ func TestMessageFromName(t *testing.T) {
 	}{
 		{"", "Happy birthday, dear !"},
 		{"alice", "Happy birthday, dear alice!"},
+		{"bob", "Happy birthday, dear bob!"},
 	}
 
 	for _, testItem := range tests {
