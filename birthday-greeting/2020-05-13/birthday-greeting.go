@@ -12,10 +12,10 @@ func main() {
 
 // MessageFromName Get happy birthday message for given person
 func MessageFromName(firstName string) string {
-	return fmt.Sprintf("Happy birthday, dear %s!", firstLetterUppercase(firstName))
+	return fmt.Sprintf("Happy birthday, dear %s!", pascalCaseWithSpaces(firstName))
 }
 
-func firstLetterUppercase(word string) string {
+func pascalCaseWithSpaces(word string) string {
 	allWords := strings.Split(word, " ")
 	finalWord := ""
 
