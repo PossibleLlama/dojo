@@ -16,13 +16,19 @@ func MessageFromName(firstName string) string {
 }
 
 func firstLetterUppercase(word string) string {
-	if len(word) < 2 {
-		return strings.ToUpper(word)
+	allWords := strings.Split(word, " ")
+	finalWord := ""
+
+	for i := 0; i < len(allWords); i++ {
+		if len(allWords[i]) < 2 {
+			return strings.ToUpper(allWords[i])
+		}
+
+		charArr := []byte(allWords[i])
+
+		firstChar := bytes.ToUpper([]byte{charArr[0]})
+		otherChars := charArr[1:]
+		finalWord += string(bytes.Join([][]byte{firstChar, otherChars}, nil)) + " "
 	}
-
-	charArr := []byte(word)
-
-	firstChar := bytes.ToUpper([]byte{charArr[0]})
-	otherChars := charArr[1:]
-	return string(bytes.Join([][]byte{firstChar, otherChars}, nil))
+	return strings.Trim(finalWord, " ")
 }
