@@ -10,12 +10,12 @@ func TestMessageFromName(t *testing.T) {
 		input    Contact
 		expected string
 	}{
-		{GenContact(""), nameInMessage("")},
-		{GenContact("alice"), nameInMessage("Alice")},
-		{GenContact("bob"), nameInMessage("Bob")},
-		{GenContact("c"), nameInMessage("C")},
-		{GenContact("dd"), nameInMessage("Dd")},
-		{GenContact("edwina eucalyptus"), nameInMessage("Edwina Eucalyptus")},
+		{generateContactWithJustFirstName(""), nameInMessage("")},
+		{generateContactWithJustFirstName("alice"), nameInMessage("Alice")},
+		{generateContactWithJustFirstName("bob"), nameInMessage("Bob")},
+		{generateContactWithJustFirstName("c"), nameInMessage("C")},
+		{generateContactWithJustFirstName("dd"), nameInMessage("Dd")},
+		{generateContactWithJustFirstName("edwina eucalyptus"), nameInMessage("Edwina Eucalyptus")},
 	}
 
 	for _, testItem := range tests {
@@ -27,6 +27,10 @@ func TestMessageFromName(t *testing.T) {
 			}
 		})
 	}
+}
+
+func generateContactWithJustFirstName(firstName string) Contact {
+	return GenContact(firstName, "", "")
 }
 
 func nameInMessage(name string) string {

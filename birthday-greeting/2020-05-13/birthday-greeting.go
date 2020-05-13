@@ -6,15 +6,16 @@ import (
 	"strings"
 )
 
+// Contact object to hold details for a given contact
 type Contact struct {
 	firstName string
 	lastName  string
 	email     string
 }
 
-func GenContact(firstName string) Contact {
-	c := Contact{firstName: firstName}
-	return c
+// GenContact Helper function to create a Contact
+func GenContact(firstName, lastName, email string) Contact {
+	return Contact{firstName: firstName, lastName: lastName, email: email}
 }
 
 func main() {
