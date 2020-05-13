@@ -24,11 +24,15 @@ func firstLetterUppercase(word string) string {
 			return strings.ToUpper(allWords[i])
 		}
 
-		charArr := []byte(allWords[i])
-
-		firstChar := bytes.ToUpper([]byte{charArr[0]})
-		otherChars := charArr[1:]
-		finalWord += string(bytes.Join([][]byte{firstChar, otherChars}, nil)) + " "
+		finalWord += uppercaseFirstCharacter(allWords[i]) + " "
 	}
 	return strings.Trim(finalWord, " ")
+}
+
+func uppercaseFirstCharacter(word string) string {
+	charArr := []byte(word)
+
+	firstChar := bytes.ToUpper([]byte{charArr[0]})
+	otherChars := charArr[1:]
+	return string(bytes.Join([][]byte{firstChar, otherChars}, nil))
 }
