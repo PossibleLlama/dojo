@@ -37,3 +37,16 @@ def find_numbers_that_sum_to(sum, number_list):
                 continue
 
     return sum_to
+
+file = open("../input.txt")
+file_contents = file.read()
+
+list_of_numbers, errors = read_numbers_from_string(file_contents)
+matching_pairs = find_numbers_that_sum_to(2020, list_of_numbers)
+
+if (len(matching_pairs) > 0):
+    print("Found a pair. {0} and {1}. Multiplied together get {2}".
+        format(
+            matching_pairs[0][0],
+            matching_pairs[0][1],
+            matching_pairs[0][0] * matching_pairs[0][1]))
