@@ -20,6 +20,10 @@ fn test_is_prime_under_10() {
     assert_eq!(is_prime(2), true);
     assert_eq!(is_prime(3), true);
     assert_eq!(is_prime(4), false);
+    assert_eq!(is_prime(5), true);
+    assert_eq!(is_prime(6), false);
+    assert_eq!(is_prime(7), true);
+    assert_eq!(is_prime(8), false);
 }
 
 #[test]
