@@ -4,17 +4,41 @@ fn main() {
     println!("Hello, world!");
 }
 
+fn primes_that_make_up_num(a: u64) -> Vec<u64> {
+    let mut primes = Vec::<u64>::new();
+    if is_a_prime(a) {
+        primes.push(a);
+    }
+    return primes;
+}
+
 fn is_a_prime(a: u64) -> bool {
     if a <= 1 {
         return false;
     }
-    let x = a-1;
-    for n in 2..x {
+    for n in 2..a-1 {
         if a % n == 0 {
             return false;
         }
     }
     return true;
+}
+
+#[test]
+fn test_primes_that_make_up_num_1() {
+    assert_eq!(primes_that_make_up_num(1), Vec::<u64>::new());
+}
+
+#[test]
+fn test_primes_that_make_up_num_primes() {
+    assert_eq!(primes_that_make_up_num(2), vec![2]);
+    assert_eq!(primes_that_make_up_num(3), vec![3]);
+    assert_eq!(primes_that_make_up_num(5), vec![5]);
+    assert_eq!(primes_that_make_up_num(7), vec![7]);
+    assert_eq!(primes_that_make_up_num(11), vec![11]);
+    assert_eq!(primes_that_make_up_num(13), vec![13]);
+    assert_eq!(primes_that_make_up_num(17), vec![17]);
+    assert_eq!(primes_that_make_up_num(19), vec![19]);
 }
 
 #[test]
