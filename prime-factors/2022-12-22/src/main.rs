@@ -10,11 +10,12 @@ fn is_prime(a: i32) -> bool {
 }
 
 #[test]
-fn test_is_prime_single_num() {
+fn test_is_prime_under_10() {
     assert_eq!(is_prime(1), false);
+    assert_eq!(is_prime(2), true);
+    assert_eq!(is_prime(3), true);
 }
 
 #[test]
 fn test_is_prime_two() {
-    assert_eq!(is_prime(2), true);
 }
