@@ -8,7 +8,8 @@ fn is_a_prime(a: u64) -> bool {
     if a <= 1 {
         return false;
     }
-    for n in 2..a-1 {
+    let x = a-1;
+    for n in 2..x {
         if a % n == 0 {
             return false;
         }
@@ -32,7 +33,7 @@ fn test_is_prime_under_10() {
 
 #[test]
 fn test_is_prime_under_1000() {
-    for n in 1..1000 {
+    for n in 0..1000 {
         assert_eq!(is_a_prime(n), is_prime(n));
     }
 }
