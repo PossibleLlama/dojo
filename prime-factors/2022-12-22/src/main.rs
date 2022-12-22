@@ -24,4 +24,8 @@ fn test_is_prime_under_10() {
 #[test]
 fn test_is_prime_negative() {
     assert_eq!(is_prime(-1), false);
+    assert_eq!(is_prime(-3), false);
+    assert_eq!(is_prime(-5), false);
+    assert_eq!(is_prime(-7), false);
+    assert_eq!(is_prime(-9), false);
 }
