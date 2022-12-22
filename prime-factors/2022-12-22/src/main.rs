@@ -1,7 +1,8 @@
 use primes::{ is_prime };
 
 fn main() {
-    println!("primes of {:?} -> {:?}", 12, primes_that_make_up_num(12));
+    let num = 48;
+    println!("primes of {:?} -> {:?}", num, primes_that_make_up_num(num));
 }
 
 fn primes_that_make_up_num(a: u64) -> Vec<u64> {
@@ -64,6 +65,11 @@ fn test_primes_that_make_up_num_primes() {
 fn test_primes_that_make_up_num_multiple_of_2() {
     assert_eq!(primes_that_make_up_num(4), vec![2,2]);
     assert_eq!(primes_that_make_up_num(6), vec![2,3]);
+    assert_eq!(primes_that_make_up_num(8), vec![2,2,2]);
+    assert_eq!(primes_that_make_up_num(10), vec![2,5]);
+    assert_eq!(primes_that_make_up_num(24), vec![2,2,2,3]);
+    assert_eq!(primes_that_make_up_num(48), vec![2,2,2,2,3]);
+    assert_eq!(primes_that_make_up_num(100), vec![2,2,5,5]);
 }
 
 #[test]
