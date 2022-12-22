@@ -1,20 +1,33 @@
 use primes::{ is_prime };
 
 fn main() {
-    println!("Hello, world!");
+    println!("primes of {:?} -> {:?}", 12, primes_that_make_up_num(12));
 }
 
 fn primes_that_make_up_num(a: u64) -> Vec<u64> {
     let mut primes = Vec::<u64>::new();
-    if is_a_prime(a) {
-        primes.push(a);
-    } else {
-        if is_a_prime(a/2) {
-            primes.push(2);
-            primes.push(a/2);
+    match lowest_prime_factor(a) {
+        None => {}
+        Some(n) => {
+            primes.push(n);
+            primes = [primes, primes_that_make_up_num(a/n)].concat();
         }
     }
-    return primes;
+    primes.into_iter().filter(|n| *n != 0).collect::<Vec<u64>>()
+}
+
+fn lowest_prime_factor(a: u64) -> Option<u64> {
+    if a < 2 {
+        return None;
+    } else if is_a_prime(a) {
+        return Some(a);
+    }
+    for n in 2..a-1 {
+        if a % n == 0 {
+            return Some(n);
+        }
+    }
+    None
 }
 
 fn is_a_prime(a: u64) -> bool {
@@ -26,7 +39,7 @@ fn is_a_prime(a: u64) -> bool {
             return false;
         }
     }
-    return true;
+    true
 }
 
 #[test]
@@ -51,6 +64,61 @@ fn test_primes_that_make_up_num_primes() {
 fn test_primes_that_make_up_num_multiple_of_2() {
     assert_eq!(primes_that_make_up_num(4), vec![2,2]);
     assert_eq!(primes_that_make_up_num(6), vec![2,3]);
+}
+
+#[test]
+fn test_primes_that_make_up_num_multiple_of_3() {
+    assert_eq!(primes_that_make_up_num(6), vec![2,3]);
+    assert_eq!(primes_that_make_up_num(9), vec![3,3]);
+    assert_eq!(primes_that_make_up_num(12), vec![2,2,3]);
+    assert_eq!(primes_that_make_up_num(15), vec![3,5]);
+    assert_eq!(primes_that_make_up_num(18), vec![2,3,3]);
+    assert_eq!(primes_that_make_up_num(21), vec![3,7]);
+    assert_eq!(primes_that_make_up_num(24), vec![2,2,2,3]);
+}
+
+#[test]
+fn test_lowest_prime_factor_none() {
+    assert_eq!(lowest_prime_factor(0), None);
+    assert_eq!(lowest_prime_factor(1), None);
+}
+
+#[test]
+fn test_lowest_prime_factor_primes() {
+    assert_eq!(lowest_prime_factor(2), Some(2));
+    assert_eq!(lowest_prime_factor(3), Some(3));
+    assert_eq!(lowest_prime_factor(5), Some(5));
+    assert_eq!(lowest_prime_factor(7), Some(7));
+    assert_eq!(lowest_prime_factor(11), Some(11));
+    assert_eq!(lowest_prime_factor(13), Some(13));
+    assert_eq!(lowest_prime_factor(17), Some(17));
+}
+
+#[test]
+fn test_lowest_prime_factor_multiple_of_2() {
+    assert_eq!(lowest_prime_factor(4), Some(2));
+    assert_eq!(lowest_prime_factor(6), Some(2));
+    assert_eq!(lowest_prime_factor(8), Some(2));
+    assert_eq!(lowest_prime_factor(10), Some(2));
+    assert_eq!(lowest_prime_factor(12), Some(2));
+    assert_eq!(lowest_prime_factor(14), Some(2));
+    assert_eq!(lowest_prime_factor(16), Some(2));
+    assert_eq!(lowest_prime_factor(18), Some(2));
+}
+
+#[test]
+fn test_lowest_prime_factor_multiple_of_3() {
+    assert_eq!(lowest_prime_factor(9), Some(3));
+    assert_eq!(lowest_prime_factor(15), Some(3));
+    assert_eq!(lowest_prime_factor(21), Some(3));
+    assert_eq!(lowest_prime_factor(27), Some(3));
+    assert_eq!(lowest_prime_factor(33), Some(3));
+}
+
+#[test]
+fn test_lowest_prime_factor_multiple_of_5() {
+    assert_eq!(lowest_prime_factor(25), Some(5));
+    assert_eq!(lowest_prime_factor(125), Some(5));
 }
 
 #[test]
