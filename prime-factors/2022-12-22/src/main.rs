@@ -3,7 +3,7 @@ fn main() {
 }
 
 fn is_prime(a: i32) -> bool {
-    if a == 1 {
+    if a <= 1 {
         return false;
     } else if a == 2 {
         return true;
@@ -22,5 +22,6 @@ fn test_is_prime_under_10() {
 }
 
 #[test]
-fn test_is_prime_two() {
+fn test_is_prime_negative() {
+    assert_eq!(is_prime(-1), false);
 }
