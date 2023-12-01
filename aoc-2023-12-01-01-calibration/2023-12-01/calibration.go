@@ -39,7 +39,8 @@ func GetFirstAndLastIntegersCombined(input []int) int {
 
 func GetIntegers(line string) []int {
 	ints := []int{}
-	for _, char := range StripNonIntegers(line) {
+	for _, char := range StripNonIntegers(
+		ReplaceSpelledOutNumbers(line)) {
 		integer, err := strconv.Atoi(string(char))
 		if err == nil {
 			ints = append(ints, integer)
@@ -56,4 +57,56 @@ func StripNonIntegers(line string) string {
 		}
 	}
 	return result.String()
+}
+
+func ReplaceSpelledOutNumbers(line string) string {
+	changing := true
+	for changing {
+		changing = false
+		for index, c := range line {
+			remaining := len(line) - index
+			switch c {
+			case 'o':
+				if remaining >= 3 && line[index:index+3] == "one" {
+					line = strings.ReplaceAll(line, "one", "1")
+					changing = true
+				}
+			case 't':
+				if remaining >= 3 && line[index:index+3] == "two" {
+					line = strings.ReplaceAll(line, "two", "2")
+					changing = true
+				} else if remaining >= 5 && line[index:index+5] == "three" {
+					line = strings.ReplaceAll(line, "three", "3")
+					changing = true
+				}
+			case 'f':
+				if remaining >= 4 && line[index:index+4] == "four" {
+					line = strings.ReplaceAll(line, "four", "4")
+					changing = true
+				} else if remaining >= 4 && line[index:index+4] == "five" {
+					line = strings.ReplaceAll(line, "five", "5")
+					changing = true
+				}
+			case 's':
+				if remaining >= 3 && line[index:index+3] == "six" {
+					line = strings.ReplaceAll(line, "six", "6")
+					changing = true
+				} else if remaining >= 5 && line[index:index+5] == "seven" {
+					line = strings.ReplaceAll(line, "seven", "7")
+					changing = true
+				}
+			case 'e':
+				if remaining >= 5 && line[index:index+5] == "eight" {
+					line = strings.ReplaceAll(line, "eight", "8")
+					changing = true
+				}
+			case 'n':
+				if remaining >= 4 && line[index:index+4] == "nine" {
+					line = strings.ReplaceAll(line, "nine", "9")
+					changing = true
+				}
+			}
+		}
+	}
+	return line
 }

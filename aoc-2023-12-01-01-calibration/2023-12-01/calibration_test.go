@@ -16,6 +16,11 @@ func TestGetIntegers(t *testing.T) {
 		{"12", []int{1, 2}},
 		{"123", []int{1, 2, 3}},
 		{"1a", []int{1}},
+		{"one", []int{1}},
+		{"eightwo", []int{8}},
+		{"twone", []int{2}},
+		{"oneight", []int{1}},
+		{"oneightwo", []int{1, 2}},
 	}
 
 	for _, test := range tests {
