@@ -1,7 +1,0 @@
-#! /bin/bash
-
-KATA="$(pwd | rev | cut -d'/' -f2 | rev)"
-LANG="${1:-notset}"
-
-# Wanting these to be ran only if tests are successful. Easiest way is chaining &&'s.
-./run-tests && git add --all && git commit -m "$KATA-$LANG $(date '+%Y-%m-%d %H:%M')" && echo "Completed successfully"
